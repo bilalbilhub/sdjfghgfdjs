@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>الوسائط المتعددة | عمل الطالب بلال غسان ناجح الفرا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --img:#06b6d4;
+  --img2:#0891b2;
+  --aud:#ec4899;
+  --aud2:#a855f7;
+  --vid:#f59e0b;
+  --vid2:#ef4444;
+  --cont:#10b981;
+  --cont2:#22d3ee;
+  --txt:#eef0ff;
+  --muted:#9b9bc0;
+  --card-bg:rgba(255,255,255,.05);
+  --card-bd:rgba(255,255,255,.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Tajawal',system-ui,sans-serif;
+  background:#07070f;color:var(--txt);
+  line-height:1.8;overflow-x:hidden;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+
+/* ====== خلفية ====== */
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden;background:
+  radial-gradient(circle at 15% 10%, #1b1147 0%, transparent 45%),
+  radial-gradient(circle at 85% 20%, #062b3a 0%, transparent 45%),
+  radial-gradient(circle at 50% 90%, #2a0a2e 0%, transparent 50%),
+  #07070f}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:float 20s ease-in-out infinite}
+.b1{width:340px;height:340px;background:var(--aud);top:-100px;right:-80px}
+.b2{width:300px;height:300px;background:var(--img);bottom:-90px;left:-80px;animation-delay:-7s}
+.b3{width:260px;height:260px;background:var(--vid);top:45%;left:45%;animation-delay:-13s}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(-30px,40px) scale(1.1)}
+  66%{transform:translate(40px,-30px) scale(.9)}
+}
+.progress{position:fixed;top:0;right:0;height:3px;width:0;z-index:99;
+  background:linear-gradient(90deg,var(--img),var(--aud),var(--vid));
+  box-shadow:0 0 12px var(--img);transition:width .1s}
+
+/* ====== الهيدر ====== */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:70px 20px 50px;position:relative;
+}
+.badge{
+  display:inline-block;padding:8px 20px;border-radius:50px;font-size:.82rem;font-weight:700;
+  background:linear-gradient(90deg,rgba(6,182,212,.22),rgba(236,72,153,.22));
+  border:1px solid rgba(6,182,212,.5);color:#a5f3fc;letter-spacing:1px;
+  box-shadow:0 0 22px rgba(6,182,212,.3);
+}
+.hero h1{
+  font-size:clamp(2.2rem,9vw,5rem);font-weight:900;margin:20px 0 6px;line-height:1.15;
+  background:linear-gradient(120deg,#fff 10%,var(--img) 35%,var(--aud) 60%,var(--vid) 85%);
+  background-size:250% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:shine 7s linear infinite;
+  filter:drop-shadow(0 0 30px rgba(6,182,212,.4));
+}
+@keyframes shine{to{background-position:250% center}}
+.hero .en{color:var(--muted);letter-spacing:5px;font-size:clamp(.7rem,2.4vw,1rem);font-weight:500}
+.hero .sub{color:var(--muted);margin-top:10px;font-size:clamp(.85rem,2.6vw,1rem);max-width:500px;padding:0 10px}
+
+/* ثلاث دوائر أيقونية */
+.trio{display:flex;gap:18px;margin:38px 0 10px}
+.trio .bubble{
+  width:clamp(60px,18vw,90px);height:clamp(60px,18vw,90px);
+  border-radius:50%;display:grid;place-items:center;
+  font-size:clamp(26px,7vw,40px);
+  background:rgba(255,255,255,.05);
+  border:1.5px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(10px);
+  box-shadow:0 15px 40px rgba(0,0,0,.5);
+  animation:bob 3.5s ease-in-out infinite;
+}
+.trio .bubble:nth-child(2){animation-delay:.6s;border-color:var(--aud)}
+.trio .bubble:nth-child(3){animation-delay:1.2s;border-color:var(--vid)}
+.trio .bubble:nth-child(1){border-color:var(--img)}
+@keyframes bob{50%{transform:translateY(-14px) scale(1.06)}}
+
+.student{
+  margin-top:34px;padding:14px 26px;border-radius:16px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(12px);width:100%;max-width:340px;
+}
+.student span{color:var(--muted);font-size:.75rem;display:block;margin-bottom:2px;letter-spacing:2px}
+.student strong{
+  background:linear-gradient(90deg,var(--img),var(--aud));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-weight:900;font-size:clamp(.95rem,3.5vw,1.15rem);
+}
+
+/* ====== الأقسام ====== */
+section{max-width:1150px;margin:0 auto;padding:clamp(50px,9vw,80px) clamp(16px,4vw,22px)}
+.sec-head{text-align:center;margin-bottom:clamp(30px,5vw,45px)}
+.sec-num{
+  display:inline-block;font-weight:900;font-size:.75rem;letter-spacing:3px;margin-bottom:10px;
+}
+.sec-head h2{
+  font-size:clamp(1.5rem,6vw,2.6rem);font-weight:900;
+  background:linear-gradient(90deg,#fff,#c4b5fd);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  line-height:1.3;
+}
+.sec-head p{color:var(--muted);max-width:600px;margin:10px auto 0;font-size:clamp(.85rem,2.8vw,.98rem)}
+.underline{width:80px;height:3px;margin:16px auto 0;border-radius:3px;
+  background:linear-gradient(90deg,var(--img),var(--aud),var(--vid));
+  box-shadow:0 0 16px var(--img)}
+
+/* تعريف */
+.intro{
+  max-width:850px;margin:0 auto;padding:clamp(22px,5vw,34px);
+  border-radius:20px;position:relative;
+  background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.1);
+  backdrop-filter:blur(14px);
+  font-size:clamp(.95rem,3vw,1.05rem);
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+.intro::before{
+  content:'';position:absolute;inset:-1px;border-radius:21px;z-index:-1;
+  background:linear-gradient(120deg,var(--img),var(--aud),var(--vid));
+  opacity:.35;filter:blur(14px);
+}
+.intro b{color:var(--img)}
+.intro b.p{color:var(--aud)}
+.intro b.v{color:var(--vid)}
+
+/* ====== بطاقات قابلة للقلب بالضغط ====== */
+.flip-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));
+  gap:14px;
+}
+.flip-card{
+  perspective:1000px;
+  height:clamp(200px,42vw,240px);
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;
+}
+.flip-inner{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .65s cubic-bezier(.2,.7,.3,1);
+}
+.flip-card.active .flip-inner{transform:rotateY(180deg)}
+.flip-face{
+  position:absolute;inset:0;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  border-radius:18px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:18px 14px;text-align:center;
+  border:1px solid var(--card-bd);
+  background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  backdrop-filter:blur(8px);
+  box-shadow:0 14px 35px rgba(0,0,0,.45);
+  overflow:hidden;
+}
+.flip-front .ico{
+  font-size:clamp(38px,11vw,50px);margin-bottom:8px;
+  filter:drop-shadow(0 6px 16px rgba(0,0,0,.6));
+}
+.flip-front h3{font-size:clamp(1rem,4vw,1.2rem);font-weight:900;letter-spacing:1px}
+.flip-front small{color:var(--muted);font-size:.72rem;letter-spacing:1.5px;margin-top:2px}
+.flip-front .tap-hint{
+  margin-top:10px;font-size:.66rem;color:var(--muted);
+  opacity:.55;letter-spacing:1px;
+}
+.flip-back{
+  transform:rotateY(180deg);
+  justify-content:flex-start;
+  padding-top:16px;
+  overflow-y:auto;
+}
+.flip-back h4{
+  font-size:.95rem;margin-bottom:6px;color:#fff;font-weight:900;
+}
+.flip-back p{font-size:.8rem;line-height:1.55;color:#d5d5f0}
+.flip-back .meta{
+  font-size:.7rem;margin-top:8px;padding:3px 10px;border-radius:20px;
+  background:rgba(255,255,255,.08);color:var(--muted);
+}
+
+/* ألوان حسب القسم */
+.s-img .flip-front{border-color:rgba(6,182,212,.45)}
+.s-img .flip-back{background:linear-gradient(160deg,rgba(6,182,212,.22),rgba(8,145,178,.12))}
+.s-img .sec-num{color:var(--img)}
+.s-img .underline{background:linear-gradient(90deg,var(--img),var(--img2))}
+
+.s-aud .flip-front{border-color:rgba(236,72,153,.45)}
+.s-aud .flip-back{background:linear-gradient(160deg,rgba(236,72,153,.22),rgba(168,85,247,.12))}
+.s-aud .sec-num{color:var(--aud)}
+.s-aud .underline{background:linear-gradient(90deg,var(--aud),var(--aud2))}
+
+.s-vid .flip-front{border-color:rgba(245,158,11,.45)}
+.s-vid .flip-back{background:linear-gradient(160deg,rgba(245,158,11,.22),rgba(239,68,68,.12))}
+.s-vid .sec-num{color:var(--vid)}
+.s-vid .underline{background:linear-gradient(90deg,var(--vid),var(--vid2))}
+
+.s-cont .flip-front{border-color:rgba(16,185,129,.45)}
+.s-cont .flip-back{background:linear-gradient(160deg,rgba(16,185,129,.22),rgba(34,211,238,.12))}
+.s-cont .sec-num{color:var(--cont)}
+.s-cont .underline{background:linear-gradient(90deg,var(--cont),var(--cont2))}
+
+/* ====== جدول المقارنة ====== */
+.table-wrap{
+  overflow-x:auto;border-radius:16px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.03);
+  -webkit-overflow-scrolling:touch;
+}
+table{width:100%;border-collapse:collapse;min-width:520px;font-size:clamp(.8rem,2.6vw,.92rem)}
+thead{background:linear-gradient(90deg,rgba(6,182,212,.2),rgba(236,72,153,.2))}
+th,td{padding:12px 14px;text-align:right;border-bottom:1px solid rgba(255,255,255,.06)}
+th{font-weight:900;color:#fff;font-size:.88rem}
+td{color:#d0d0e8}
+td:first-child{font-weight:700;color:var(--img)}
+tbody tr:hover{background:rgba(255,255,255,.03)}
+.tag-yes{color:#4ade80;font-weight:700}
+.tag-no{color:#f87171;font-weight:700}
+
+/* ====== الحاويات ====== */
+.cont-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
+.cont-box{
+  padding:22px 20px;border-radius:18px;
+  background:linear-gradient(150deg,rgba(16,185,129,.12),rgba(34,211,238,.06));
+  border:1px solid rgba(16,185,129,.3);
+  transition:transform .35s;
+}
+.cont-box:active{transform:scale(.98)}
+.cont-box h3{
+  font-size:1.1rem;margin-bottom:6px;color:var(--cont);
+  display:flex;align-items:center;gap:8px;
+}
+.cont-box h3 span{font-size:.72rem;padding:2px 8px;border-radius:10px;
+  background:rgba(16,185,129,.2);color:#6ee7b7;font-weight:700}
+.cont-box p{font-size:.85rem;color:#c5c5e0;margin-bottom:8px}
+.cont-box ul{padding-right:18px;font-size:.82rem;color:#b0b0d0}
+.cont-box li{margin-bottom:3px}
+
+/* ====== البرامج ====== */
+.softs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:12px}
+.soft{
+  padding:16px 12px;border-radius:14px;text-align:center;
+  background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.1);
+  transition:transform .3s,border-color .3s;
+}
+.soft:active{transform:scale(.95);border-color:var(--img)}
+.soft .s-ico{font-size:28px;display:block;margin-bottom:6px}
+.soft b{display:block;font-size:.82rem;margin-bottom:2px;line-height:1.3}
+.soft span{font-size:.7rem;color:var(--muted)}
+
+.soft-group-title{
+  font-size:1.05rem;font-weight:900;margin:26px 0 12px;
+  display:flex;align-items:center;gap:8px;color:#fff;
+}
+.soft-group-title:first-child{margin-top:0}
+.soft-group-title .dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--img);box-shadow:0 0 10px var(--img);
+}
+.soft-group-title.aud .dot{background:var(--aud);box-shadow:0 0 10px var(--aud)}
+.soft-group-title.vid .dot{background:var(--vid);box-shadow:0 0 10px var(--vid)}
+
+/* ====== نصائح ====== */
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
+.tip{
+  padding:18px 18px;border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-right:3px solid var(--vid);
+  font-size:.88rem;
+  color:#d0d0e8;
+}
+.tip b{color:#fff;display:block;margin-bottom:4px;font-size:.95rem}
+
+/* ====== خاتمة وفوتر ====== */
+.outro{
+  max-width:800px;margin:0 auto;text-align:center;
+  padding:clamp(30px,6vw,44px) clamp(20px,5vw,34px);
+  border-radius:24px;
+  background:linear-gradient(150deg,rgba(6,182,212,.18),rgba(236,72,153,.16));
+  border:1px solid rgba(6,182,212,.4);
+  box-shadow:0 0 60px rgba(6,182,212,.2);
+}
+.outro h2{font-size:clamp(1.3rem,5vw,1.9rem);margin-bottom:12px}
+.outro p{color:#d0d0ec;font-size:clamp(.9rem,3vw,1rem)}
+.outro b{color:var(--img)}
+
+footer{
+  text-align:center;padding:40px 20px 50px;margin-top:30px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+footer .name{
+  font-size:clamp(1.05rem,4vw,1.5rem);font-weight:900;
+  background:linear-gradient(90deg,var(--img),var(--aud),var(--vid));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+footer p{color:var(--muted);font-size:.8rem;margin-top:6px}
+
+/* ظهور */
+.reveal{opacity:0;transform:translateY(35px);transition:.8s cubic-bezier(.2,.7,.3,1)}
+.reveal.show{opacity:1;transform:none}
+
+/* زر العودة */
+.to-top{
+  position:fixed;bottom:18px;left:18px;z-index:50;
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--aud),var(--img));
+  display:grid;place-items:center;font-size:20px;color:#fff;
+  box-shadow:0 10px 30px rgba(6,182,212,.4);
+  opacity:0;pointer-events:none;transition:.35s;border:none;cursor:pointer;
+}
+.to-top.show{opacity:1;pointer-events:auto}
+
+@media (min-width:768px){
+  .flip-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  .softs{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+}
+</style>
+</head>
+<body>
+
+<div class="bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="progress" id="bar"></div>
+<button class="to-top" id="toTop" aria-label="أعلى">↑</button>
+
+<!-- ===== الهيدر ===== -->
+<header class="hero">
+  <div class="badge">📚 درس الوسائط المتعددة</div>
+  <h1>الصور • الصوت • الفيديو</h1>
+  <p class="en">M U L T I M E D I A</p>
+  <p class="sub">كل ما تحتاج معرفته عن أهم وسائط العرض وامتداداتها وبرامجها</p>
+
+  <div class="trio">
+    <div class="bubble">🖼️</div>
+    <div class="bubble">🎧</div>
+    <div class="bubble">🎬</div>
+  </div>
+
+  <div class="student">
+    <span>عمل الطالب</span>
+    <strong>بلال غسان ناجح الفرا</strong>
+  </div>
+</header>
+
+<!-- ===== ١: التعريف ===== -->
+<section>
+  <div class="sec-head reveal">
+    <div class="sec-num">٠١ — المفهوم</div>
+    <h2>ما هي الوسائط المتعددة؟</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="intro reveal">
+    <p>
+      <b>الوسائط المتعددة</b> هي دمج وسيطين أو أكثر من وسائط الاتصال
+      (نص، <b>صورة</b>، <b class="p">صوت</b>، <b class="v">فيديو</b>، رسوم متحركة، تفاعل)
+      في تطبيق أو ملف واحد لتبادل المعلومات بشكل أوضح وأكثر تأثيرًا.
+      وفي هذا الدرس سنركّز على <b>الوسائط الثلاثة الأساسية</b>:
+      الصور والأصوات والفيديوهات، وأهم امتداداتها وبرامجها.
+    </p>
+  </div>
+</section>
+
+<!-- ===== ٢: الصور ===== -->
+<section class="s-img">
+  <div class="sec-head reveal">
+    <div class="sec-num">٠٢ — الصور</div>
+    <h2>🖼️ الصور وامتداداتها</h2>
+    <div class="underline"></div>
+    <p>اضغط على أي بطاقة لقلبها وقراءة التفاصيل</p>
+  </div>
+
+  <div class="flip-grid reveal">
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🖼️</span>
+          <h3>JPG / JPEG</h3>
+          <small>الصيغة الأشهر</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>JPG / JPEG</h4>
+          <p>الأكثر استخدامًا في الصور الفوتوغرافية، ضغط مع فقدان جودة بسيط مقابل حجم صغير جدًا.</p>
+          <span class="meta">لا يدعم الشفافية</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🖼️</span>
+          <h3>PNG</h3>
+          <small>جودة + شفافية</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>PNG</h4>
+          <p>ضغط بدون فقدان جودة، يدعم الخلفية الشفافة. ممتاز للشعارات والرسوم.</p>
+          <span class="meta">حجم أكبر من JPG</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🎞️</span>
+          <h3>GIF</h3>
+          <small>صور متحركة</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>GIF</h4>
+          <p>يدعم الحركة المتكررة وعدد محدود من الألوان (256 لونًا). يُستخدم للميمات.</p>
+          <span class="meta">256 لون فقط</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🎨</span>
+          <h3>WebP</h3>
+          <small>صيغة حديثة</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>WebP</h4>
+          <p>صيغة من جوجل، حجم أصغر بـ 30% من JPG مع جودة مماثلة. تدعم الحركة والشفافية.</p>
+          <span class="meta">الأفضل للويب</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🧩</span>
+          <h3>SVG</h3>
+          <small>رسوميات متجهة</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>SVG</h4>
+          <p>رسوميات متجهة لا تفقد جودتها عند التكبير، تُستخدم للشعارات والأيقونات.</p>
+          <span class="meta">تعتمد على الأكواد</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🖨️</span>
+          <h3>TIFF</h3>
+          <small>للطباعة</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>TIFF</h4>
+          <p>جودة عالية جدًا بدون ضغط تقريبًا، تُستخدم في الطباعة والتصوير الاحترافي.</p>
+          <span class="meta">حجم ضخم</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">💾</span>
+          <h3>BMP</h3>
+          <small>غير مضغوط</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>BMP</h4>
+          <p>صيغة ويندوز القديمة، غير مضغوطة، حجمها كبير جدًا وجودتها عالية.</p>
+          <span class="meta">قديمة</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">📱</span>
+          <h3>HEIC</h3>
+          <small>آيفون</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>HEIC</h4>
+          <p>صيغة آبل الحديثة، حجم نصف JPG بجودة أعلى، لكن التوافق محدود.</p>
+          <span class="meta">تحتاج تحويل</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ٣: الصوت ===== -->
+<section class="s-aud">
+  <div class="sec-head reveal">
+    <div class="sec-num">٠٣ — الصوت</div>
+    <h2>🎧 الصوت وامتداداته</h2>
+    <div class="underline"></div>
+    <p>الفرق بين الصيغ المضغوطة وغير المضغوطة</p>
+  </div>
+
+  <div class="flip-grid reveal">
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🎵</span>
+          <h3>MP3</h3>
+          <small>الأشهر عالميًا</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>MP3</h4>
+          <p>ضغط مع فقدان جزئي للجودة، حجم صغير وتوافق كامل مع جميع الأجهزة.</p>
+          <span class="meta">الأكثر شيوعًا</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🎼</span>
+          <h3>WAV</h3>
+          <small>جودة أصلية</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>WAV</h4>
+          <p>غير مضغوط، جودة استوديو كاملة، حجم كبير جدًا. يُستخدم في التسجيل الاحترافي.</p>
+          <span class="meta">ملفات ضخمة</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🍎</span>
+          <h3>AAC / M4A</h3>
+          <small>أفضل من MP3</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>AAC / M4A</h4>
+          <p>جودة أعلى من MP3 بنفس الحجم. الصيغة الافتراضية في آبل ويوتيوب.</p>
+          <span class="meta">حديثة</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">💿</span>
+          <h3>FLAC</h3>
+          <small>بدون فقدان</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>FLAC</h4>
+          <p>ضغط بدون فقدان جودة، مفتوح المصدر، مثالي لمحبي الصوت النقي.</p>
+          <span class="meta">حجم كبير</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🟣</span>
+          <h3>OGG</h3>
+          <small>مفتوح المصدر</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>OGG (Vorbis)</h4>
+          <p>صيغة مفتوحة المصدر بجودة عالية وحجم صغير، تُستخدم في الألعاب.</p>
+          <span class="meta">مجاني</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🪟</span>
+          <h3>WMA</h3>
+          <small>مايكروسوفت</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>WMA</h4>
+          <p>صيغة مايكروسوفت، حجم صغير وجودة مقبولة، لكن دعمها محدود الآن.</p>
+          <span class="meta">قديمة نسبيًا</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ٤: الفيديو ===== -->
+<section class="s-vid">
+  <div class="sec-head reveal">
+    <div class="sec-num">٠٤ — الفيديو</div>
+    <h2>🎬 الفيديو وامتداداته</h2>
+    <div class="underline"></div>
+    <p>أهم صيغ الفيديو واستخداماتها</p>
+  </div>
+
+  <div class="flip-grid reveal">
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🎬</span>
+          <h3>MP4</h3>
+          <small>الأشهر عالميًا</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>MP4</h4>
+          <p>الأكثر شيوعًا، توافق كامل مع الجوالات والمواقع. يعتمد عادة على H.264 + AAC.</p>
+          <span class="meta">الأفضل عمومًا</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">📼</span>
+          <h3>AVI</h3>
+          <small>قديم لكن شائع</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>AVI</h4>
+          <p>صيغة مايكروسوفت القديمة، حجم كبير ولا يدعم الترجمة المتعددة بسهولة.</p>
+          <span class="meta">حجم ضخم</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">📦</span>
+          <h3>MKV</h3>
+          <small>حاوية متعددة</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>MKV</h4>
+          <p>حاوية مفتوحة تدعم عدة أصوات وترجمات وفصول. مثالية للأفلام عالية الجودة.</p>
+          <span class="meta">ممتازة للأفلام</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🍎</span>
+          <h3>MOV</h3>
+          <small>آبل</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>MOV</h4>
+          <p>صيغة كويك تايم من آبل، جودة عالية، تُستخدم في المونتاج الاحترافي.</p>
+          <span class="meta">مناسبة للمونتاج</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🌐</span>
+          <h3>WebM</h3>
+          <small>للويب</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>WebM</h4>
+          <p>صيغة مفتوحة من جوجل للفيديو على الويب، حجم صغير وجودة جيدة.</p>
+          <span class="meta">VP9 / AV1</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-face flip-front">
+          <span class="ico">🪟</span>
+          <h3>WMV / FLV</h3>
+          <small>قديمة</small>
+          <span class="tap-hint">اضغط للتفاصيل ↻</span>
+        </div>
+        <div class="flip-face flip-back">
+          <h4>WMV / FLV</h4>
+          <p>WMV من مايكروسوفت وFLV من فلاش. صيغتان قديمتان تراجعت شعبيتهما كثيرًا.</p>
+          <span class="meta">نادرًا ما تُستخدم</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ٥: الحاويات والترميز ===== -->
+<section class="s-cont">
+  <div class="sec-head reveal">
+    <div class="sec-num">٠٥ — الحاويات والترميز</div>
+    <h2>📦 الحاويات (Containers) والترميز (Codecs)</h2>
+    <div class="underline"></div>
+    <p>الفرق بين الملف والحاوية والترميز</p>
+  </div>
+
+  <div class="intro reveal" style="margin-bottom:24px">
+    <p>
+      <b>الحاوية (Container)</b> هي الملف الذي يحمل داخله الفيديو والصوت والترجمة معًا،
+      مثل: <b>MP4</b>، <b>MKV</b>، <b>AVI</b>، <b>MOV</b>.<br><br>
+      <b>الترميز (Codec)</b> هو الطريقة التي تُضغط بها البيانات داخل الحاوية،
+      مثل: <b>H.264</b> للفيديو، <b>AAC</b> للصوت.<br><br>
+      💡 مثال: ملف <b>MP4</b> (حاوية) بداخله فيديو <b>H.264</b> وصوت <b>AAC</b>.
+    </p>
+  </div>
+
+  <div class="cont-grid reveal">
+    <div class="cont-box">
+      <h3>MP4 <span>حاوية</span></h3>
+      <p>الأشهر والأكثر توافقًا مع الأجهزة والمواقع.</p>
+      <ul>
+        <li>فيديو: H.264 / H.265 / AV1</li>
+        <li>صوت: AAC / MP3</li>
+        <li>الاستخدام: ويب، جوال، يوتيوب</li>
+      </ul>
+    </div>
+
+    <div class="cont-box">
+      <h3>MKV <span>حاوية</span></h3>
+      <p>حاوية مفتوحة تدعم كل شيء تقريبًا.</p>
+      <ul>
+        <li>أصوات متعددة + ترجمات</li>
+        <li>فيديو: H.264 / H.265 / VP9</li>
+        <li>الاستخدام: أفلام عالية الجودة</li>
+      </ul>
+    </div>
+
+    <div class="cont-box">
+      <h3>AVI <span>حاوية</span></h3>
+      <p>قديمة من مايكروسوفت، حجمها كبير.</p>
+      <ul>
+        <li>دعم محدود للترجمات</li>
+        <li>فيديو: DivX / XviD</li>
+        <li>الاستخدام: أرشيف قديم</li>
+      </ul>
+    </div>
+
+    <div class="cont-box">
+      <h3>MOV <span>حاوية</span></h3>
+      <p>من آبل، شائعة في المونتاج.</p>
+      <ul>
+        <li>جودة عالية جدًا</li>
+        <li>فيديو: H.264 / ProRes</li>
+        <li>الاستخدام: إنتاج احترافي</li>
+      </ul>
+    </div>
+
+    <div class="cont-box">
+      <h3>H.264 / H.265 <span>ترميز فيديو</span></h3>
+      <p>المعيار الأكثر استخدامًا في العالم.</p>
+      <ul>
+        <li>H.264: توافق واسع</li>
+        <li>H.265: نصف الحجم بنفس الجودة</li>
+        <li>الاستخدام: بث ويب ويوتيوب</li>
+      </ul>
+    </div>
+
+    <div class="cont-box">
+      <h3>VP9 / AV1 <span>ترميز فيديو</span></h3>
+      <p>ترميزات مفتوحة المصدر من جوجل.</p>
+      <ul>
+        <li>VP9: يستخدم في يوتيوب</li>
+        <li>AV1: الأحدث والأكفأ</li>
+        <li>الاستخدام: بث ويب</li>
+      </ul>
+    </div>
+
+    <div class="cont-box">
+      <h3>AAC / MP3 <span>ترميز صوت</span></h3>
+      <p>ترميزات الصوت داخل الحاويات.</p>
+      <ul>
+        <li>AAC: أفضل جودة/حجم</li>
+        <li>MP3: توافق عالمي</li>
+        <li>الاستخدام: كل الوسائط</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ٦: جدول المقارنة ===== -->
+<section>
+  <div class="sec-head reveal">
+    <div class="sec-num">٠٦ — مقارنة</div>
+    <h2>📊 مقارنة سريعة بين الامتدادات</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="table-wrap reveal">
+    <table>
+      <thead>
+        <tr>
+          <th>الامتداد</th>
+          <th>النوع</th>
+          <th>الجودة</th>
+          <th>الحجم</th>
+          <th>الشفافية</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>JPG</td><td>صورة</td><td>جيدة</td><td>صغير</td><td class="tag-no">✕</td></tr>
+        <tr><td>PNG</td><td>صورة</td><td>عالية</td><td>متوسط</td><td class="tag-yes">✓</td></tr>
+        <tr><td>WebP</td><td>صورة</td><td>عالية</td><td>صغير جدًا</td><td class="tag-yes">✓</td></tr>
+        <tr><td>SVG</td><td>صورة</td><td>لا نهائية</td><td>صغير جدًا</td><td class="tag-yes">✓</td></tr>
+        <tr><td>MP3</td><td>صوت</td><td>مقبولة</td><td>صغير</td><td>—</td></tr>
+        <tr><td>WAV</td><td>صوت</td><td>أصلية</td><td>ضخم</td><td>—</td></tr>
+        <tr><td>FLAC</td><td>صوت</td><td>أصلية</td><td>كبير</td><td>—</td></tr>
+        <tr><td>MP4</td><td>فيديو</td><td>عالية</td><td>صغير</td><td>—</td></tr>
+        <tr><td>MKV</td><td>فيديو</td><td>عالية جدًا</td><td>كبير</td><td>—</td></tr>
+        <tr><td>AVI</td><td>فيديو</td><td>متوسطة</td><td>ضخم</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== ٧: البرامج ===== -->
+<section>
+  <div class="sec-head reveal">
+    <div class="sec-num">٠٧ — البرامج</div>
+    <h2>🛠️ أهم برامج إنتاج الوسائط</h2>
+    <div class="underline"></div>
+    <p>برامج لكل نوع من أنواع الوسائط</p>
+  </div>
+
+  <div class="reveal">
+    <div class="soft-group-title"><span class="dot"></span> برامج الصور</div>
+    <div class="softs">
+      <div class="soft"><span class="s-ico">🖌️</span><b>Photoshop</b><span>تحرير احترافي</span></div>
+      <div class="soft"><span class="s-ico">🎨</span><b>GIMP</b><span>بديل مجاني</span></div>
+      <div class="soft"><span class="s-ico">✒️</span><b>Illustrator</b><span>رسوم متجهة</span></div>
+      <div class="soft"><span class="s-ico">📷</span><b>Lightroom</b><span>تعديل الصور</span></div>
+      <div class="soft"><span class="s-ico">🖼️</span><b>Canva</b><span>تصميم سريع</span></div>
+    </div>
+
+    <div class="soft-group-title aud"><span class="dot"></span> برامج الصوت</div>
+    <div class="softs">
+      <div class="soft"><span class="s-ico">🎚️</span><b>Audacity</b><span>مجاني ومفتوح</span></div>
+      <div class="soft"><span class="s-ico">🎛️</span><b>Adobe Audition</b><span>احترافي</span></div>
+      <div class="soft"><span class="s-ico">🎹</span><b>FL Studio</b><span>إنتاج موسيقي</span></div>
+      <div class="soft"><span class="s-ico">🎼</span><b>GarageBand</b><span>آبل</span></div>
+    </div>
+
+    <div class="soft-group-title vid"><span class="dot"></span> برامج الفيديو</div>
+    <div class="softs">
+      <div class="soft"><span class="s-ico">🎞️</span><b>Premiere Pro</b><span>مونتاج احترافي</span></div>
+      <div class="soft"><span class="s-ico">🎬</span><b>DaVinci Resolve</b><span>مجاني وقوي</span></div>
+      <div class="soft"><span class="s-ico">✂️</span><b>CapCut</b><span>للموبايل</span></div>
+      <div class="soft"><span class="s-ico">📦</span><b>HandBrake</b><span>تحويل الصيغ</span></div>
+      <div class="soft"><span class="s-ico">📺</span><b>VLC</b><span>مشغّل شامل</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ٨: نصائح ===== -->
+<section>
+  <div class="sec-head reveal">
+    <div class="sec-num">٠٨ — نصائح</div>
+    <h2>💡 نصائح مهمة عند الاستخدام</h2>
+    <div class="underline"></div>
+  </div>
+  <div class="tips reveal">
+    <div class="tip"><b>الصور</b>استخدم WebP أو JPG للمواقع لتقليل الحجم، وPNG فقط عند الحاجة للشفافية.</div>
+    <div class="tip"><b>الصوت</b>MP3 للاستخدام اليومي، وWAV للتسجيل، وFLAC للأرشفة.</div>
+    <div class="tip"><b>الفيديو</b>MP4 + H.264 للتوافق الأوسع، وMKV للأفلام عالية الجودة.</div>
+    <div class="tip"><b>الحاويات</b>الحاوية لا تحدد الجودة، بل الترميز داخلها هو الذي يحددها.</div>
+    <div class="tip"><b>التحويل</b>استخدم HandBrake أو VLC لتحويل الصيغ بسهولة.</div>
+    <div class="tip"><b>الجوال</b>عند التصوير اختر أعلى دقة ممكنة قبل الضغط.</div>
+  </div>
+</section>
+
+<!-- ===== خاتمة ===== -->
+<section>
+  <div class="outro reveal">
+    <h2>✨ خلاصة الدرس</h2>
+    <p>
+      الوسائط المتعددة هي <b>لغة العصر</b>، وفهم امتدادات الصور والصوت والفيديو
+      والحاويات والترميزات هو المفتاح لإنتاج محتوى احترافي.
+      لكل صيغة استخدامها المناسب، واختيار الصيغة الصحيحة يوفّر الحجم ويحافظ على الجودة.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="name">بلال غسان ناجح الفرا</div>
+  <p>عمل الطالب — درس الوسائط المتعددة</p>
+  <p style="opacity:.55;font-size:.7rem;margin-top:10px">صُمِّم بـ ❤️ HTML &amp; CSS</p>
+</footer>
+
+<script>
+/* شريط التقدم */
+const bar=document.getElementById('bar');
+const toTop=document.getElementById('toTop');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  bar.style.width=p+'%';
+  if(h.scrollTop>500)toTop.classList.add('show');
+  else toTop.classList.remove('show');
+},{passive:true});
+
+/* زر العودة */
+toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ظهور عند التمرير */
+const obs=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* قلب البطاقات بالضغط (يعمل على الجوال والكمبيوتر) */
+document.querySelectorAll('.flip-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    card.classList.toggle('active');
+    if(navigator.vibrate)navigator.vibrate(15);
+  });
+});
+
+/* منع تحريك الصفحة عند تمرير البطاقة المقلوبة */
+document.querySelectorAll('.flip-back').forEach(back=>{
+  back.addEventListener('touchmove',e=>e.stopPropagation(),{passive:true});
+});
+</script>
+</body>
+</html>
